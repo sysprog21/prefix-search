@@ -68,7 +68,7 @@ int main(int argc, char **argv)
             "\nCommands:\n"
             " a  add word to the tree\n"
             " f  find word in tree\n"
-            " s  search words matching prefix (at least 1 char)\n"
+            " s  search words matching prefix\n"
             " d  delete word from the tree\n"
             " q  quit, freeing all data\n\n"
             "choice: ");
@@ -110,7 +110,7 @@ int main(int argc, char **argv)
                 printf("  %s not found.\n", word);
             break;
         case 's':
-            printf("find words matching prefix (3 chars): ");
+            printf("find words matching prefix (at least 1 char): ");
             if (!fgets(word, sizeof word, stdin)) {
                 fprintf(stderr, "error: insufficient input.\n");
                 break;
