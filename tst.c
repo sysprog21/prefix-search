@@ -351,8 +351,9 @@ void *tst_search_prefix(const tst_node *root,
     if (!*s)
         return NULL;
 
-    for (; *start; start++) {
-    } /* get length of s */
+    /* get length of s */
+    for (; *start; start++)
+        ; /* wait */
     const size_t nchr = start - s;
 
     start = s; /* reset start to s */
