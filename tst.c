@@ -381,12 +381,6 @@ void *tst_search_prefix(const tst_node *root,
     return NULL;
 }
 
-/** print_word(), function for tst_traverse_fn, print each word. */
-void print_word(const void *node, void *data)
-{
-    printf("%s\n", (char *) ((tst_node *) node)->eqkid);
-}
-
 /** tst_traverse_fn(), traverse tree calling 'fn' on each word.
  *  prototype for 'fn' is void fn(const void *, void *). data can
  *  be NULL if unused.

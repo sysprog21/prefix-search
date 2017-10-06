@@ -1,5 +1,5 @@
 #ifndef PREFIX_SEARCH_H
-#define PREFIX_SEARCH_H 1
+#define PREFIX_SEARCH_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,12 +42,18 @@ void *tst_search_prefix(const tst_node *root,
                         int *n,
                         const int max);
 
-/** print_word(), function for tst_traverse_fn, print each word. */
-void print_word(const void *node, void *data);
-
 /** tst_traverse_fn(), traverse tree calling 'fn' on each word.
  *  prototype for 'fn' is void fn(const void *, void *). data can
  *  be NULL if unused.
+ *
+ *  The callback can be implemented as following:
+ *
+ *  // print each word.
+ *  void print_word(const void *node, void *data) {
+ *      printf("%s\n", tst_get_string(node));
+ *  }
+ *
+ * Then, invoke as "tst_traverse_fn (root, print_word, NULL);"
  */
 void tst_traverse_fn(const tst_node *p,
                      void(fn)(const void *, void *),
