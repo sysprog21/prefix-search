@@ -150,7 +150,7 @@ int main(int argc, char **argv)
             return 0;
             break;
         default:
-            printf("error: invalid selection.\n");
+            fprintf(stderr, "error: invalid selection.\n");
             break;
         }
     }
