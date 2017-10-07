@@ -403,27 +403,27 @@ void tst_traverse_fn(const tst_node *p,
 /** free the ternary search tree rooted at p, data storage internal. */
 void tst_free_all(tst_node *p)
 {
-    if (p) {
-        tst_free_all(p->lokid);
-        if (p->key)
-            tst_free_all(p->eqkid);
-        tst_free_all(p->hikid);
-        if (!p->key)
-            free(p->eqkid);
-        free(p);
-    }
+    if (!p)
+        return;
+    tst_free_all(p->lokid);
+    if (p->key)
+        tst_free_all(p->eqkid);
+    tst_free_all(p->hikid);
+    if (!p->key)
+        free(p->eqkid);
+    free(p);
 }
 
 /** free the ternary search tree rooted at p, data storage external. */
 void tst_free(tst_node *p)
 {
-    if (p) {
-        tst_free(p->lokid);
-        if (p->key)
-            tst_free(p->eqkid);
-        tst_free(p->hikid);
-        free(p);
-    }
+    if (!p)
+        return;
+    tst_free(p->lokid);
+    if (p->key)
+        tst_free(p->eqkid);
+    tst_free(p->hikid);
+    free(p);
 }
 
 /** access functions tst_get_key(), tst_get_refcnt, & tst_get_string().
