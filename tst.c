@@ -208,7 +208,7 @@ static void *tst_del_word(tst_node **root,
 /** tst_ins_del() ins/del copy or reference of 's' from ternary search tree.
  *  insert all nodes required for 's' in tree at eqkid node of leaf. if 'del'
  *  is non-zero deletes 's' from tree, otherwise insert 's' at node->eqkid
- *  with node->key set to the nul-chracter after final node in search path. if
+ *  with node->key set to the nul-character after final node in search path. if
  *  'cpy' is non-zero allocate storage for 's', otherwise save pointer to 's'.
  *  if 's' already exists in tree, increment node->refcnt. (to be used for del).
  *  returns address of 's' in tree on successful insert (or on delete if refcnt
@@ -225,7 +225,7 @@ void *tst_ins_del(tst_node **root, char *const *s, const int del, const int cpy)
     if (!root || !*s)
         return NULL;                 /* validate parameters */
     if (strlen(*s) + 1 > STKMAX / 2) /* limit length to 1/2 STKMAX */
-        return NULL;                 /* 128 char word lenght is plenty */
+        return NULL;                 /* 128 char word length is plenty */
 
     pcurr = root;                     /* start at root */
     while ((curr = *pcurr)) {         /* iterate to insertion node  */
@@ -427,7 +427,7 @@ void tst_free(tst_node *p)
 }
 
 /** access functions tst_get_key(), tst_get_refcnt, & tst_get_string().
- *  provide access to struct members through opague pointers availale
+ *  provide access to struct members through opaque pointers availale
  *  to program.
  */
 char tst_get_key(const tst_node *node)
