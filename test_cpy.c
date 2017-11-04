@@ -64,6 +64,7 @@ int main(int argc, char **argv)
     printf("ternary_tree, loaded %d words in %.6f sec\n", idx, t2 - t1);
 
     for (;;) {
+        char *p;
         printf(
             "\nCommands:\n"
             " a  add word to the tree\n"
@@ -73,9 +74,8 @@ int main(int argc, char **argv)
             " q  quit, freeing all data\n\n"
             "choice: ");
         fgets(word, sizeof word, stdin);
-
+        p = NULL;
         switch (*word) {
-            char *p = NULL;
         case 'a':
             printf("enter word to add: ");
             if (!fgets(word, sizeof word, stdin)) {
