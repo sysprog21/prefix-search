@@ -265,9 +265,6 @@ void *tst_ins_del(tst_node **root, char *const *s, const int del, const int cpy)
         curr->refcnt = 1;
         curr->lokid = curr->hikid = curr->eqkid = NULL;
 
-        if (!*root) /* handle assignment to root if no root */
-            *root = *pcurr;
-
         /* Place nodes until end of the string, at end of stign allocate
          * space for data, copy data as final eqkid, and return.
          */
